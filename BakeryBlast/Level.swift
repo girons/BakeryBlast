@@ -303,9 +303,9 @@ class Level {
     }
 
     fileprivate func calculateScores(for chains: Set<Chain>) {
-        // 3-chain is 60 pts, 4-chain is 120, 5-chain is 180, and so on
+        // 3-chain is 30 pts, 4-chain is 60, 5-chain is 90, and so on
         for chain in chains {
-            chain.score = 60 * (chain.length - 2) * comboMultiplier
+            chain.score = 30 * (chain.length - 2) * comboMultiplier
             comboMultiplier += 1
         }
     }
@@ -395,23 +395,74 @@ class Level {
         var horizontalChains = detectHorizontalMatches()
         var verticalChains = detectVerticalMatches()
         
-        var set = Set<Chain>()
+        // We create a new Set containing L-Shaped Chain objects.
+        var lShapeChains = Set<Chain>()
         
-        for horzChain in horizontalChains {
-            for vertChain in verticalChains {
-                if horzChain.firstCookie() == vertChain.firstCookie() ||
-                   horzChain.lastCookie() == vertChain.firstCookie() ||
-                   horzChain.firstCookie() == vertChain.lastCookie() ||
-                   horzChain.lastCookie() == vertChain.lastCookie(){
+        // We check whether a cookie is in both the horizontal & vertical
+        // chains sets and whether it is the first or last in the array
+        // (at a corner).
+        for horizontalChain in horizontalChains {
+            for verticalChain in verticalChains {
+                if horizontalChain.firstCookie() == verticalChain.firstCookie() ||
+                   horizontalChain.lastCookie() == verticalChain.firstCookie() ||
+                   horizontalChain.firstCookie() == verticalChain.lastCookie() ||
+                   horizontalChain.lastCookie() == verticalChain.lastCookie() {
                     
-                    horizontalChains.remove(horzChain)
-                    verticalChains.remove(vertChain)
+                    // Remove the L-Shape chains from the horizontal
+                    // & vertical chains sets.
+                    horizontalChains.remove(horizontalChain)
+                    verticalChains.remove(verticalChain)
                     
-                    set.insert(horzChain)
-                    set.insert(vertChain)
+                    // Add the horizontal part of the L-Shape
+                    // chain to the vertical part & give it
+                    // the .lShape chainType.
+                    for cookie in horizontalChain.cookies {
+                        verticalChain.add(cookie: cookie)
+                    }
+                    verticalChain.chainType = .lShape
                     
-                    print(set)
+                    lShapeChains.insert(verticalChain)
+                }
+            }
+        }
+        
+        //TODO: T SHAPED CHAINS
+        
+        // We create a new Set containing T-Shaped Chain objects.
+        var tShapeChains = Set<Chain>()
+        
+        // Loop through the horizontal & vertical chains.
+        for horizontalChain in horizontalChains {
+            for verticalChain in verticalChains {
+                
+                // We calculate the position of the middle cookie in the vertical & horizontal chains.
+                let middleHorizontalCookie = horizontalChain.cookies[Int(((horizontalChain.length / 2) + 1))]
+                print(middleHorizontalCookie)
+                let middleVerticalCookie = verticalChain.cookies[Int(((verticalChain.length / 2) + 1))]
+                print(middleVerticalCookie)
+                
+                // We check whether a cookie is in both the horizontal & vertical
+                // chains set and whether it is the in the middle in one array.
+                if middleHorizontalCookie == verticalChain.firstCookie() ||
+                   middleHorizontalCookie == verticalChain.lastCookie()  ||
+                   middleVerticalCookie == horizontalChain.firstCookie() ||
+                   middleVerticalCookie == horizontalChain.lastCookie() {
                     
+                    // Remove the T-Shape chains from the horizontal
+                    // & vertical chains sets.
+                    horizontalChains.remove(horizontalChain)
+                    verticalChains.remove(verticalChain)
+                    
+                    // Add the horizontal part of the T-Shape
+                    // chain to the vertical part & give it
+                    // the .tShape chainType.
+                    for cookie in horizontalChain.cookies {
+                        verticalChain.add(cookie: cookie)
+                    }
+                    verticalChain.chainType = .tShape
+                    
+                    tShapeChains.insert(verticalChain)
+                    print(tShapeChains)
                 }
             }
         }
@@ -423,13 +474,17 @@ class Level {
         
         removeCookies(horizontalChains)
         removeCookies(verticalChains)
+        removeCookies(lShapeChains)
+        removeCookies(tShapeChains)
         
         // Need to call calculateScores twices because there are two
         // sets of chain objects.
         calculateScores(for: horizontalChains)
         calculateScores(for: verticalChains)
+        calculateScores(for: lShapeChains)
+        calculateScores(for: tShapeChains)
         
-        return horizontalChains.union(verticalChains)
+        return horizontalChains.union(verticalChains).union(lShapeChains).union(tShapeChains)
     }
     
     // Each chain has a list of cookie objects and each cookie knows its column and

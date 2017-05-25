@@ -19,6 +19,7 @@ class Chain: Hashable, CustomStringConvertible {
         case horizontal
         case vertical
         case lShape
+        case tShape
         
         // Note: add any other shapes you want to detect to this list.
         // case ChainTypeLShape
@@ -29,6 +30,7 @@ class Chain: Hashable, CustomStringConvertible {
             case .horizontal: return "Horizontal"
             case .vertical: return "Vertical"
             case .lShape: return "lShape"
+            case .tShape: return "tShape"
             }
         }
     }
