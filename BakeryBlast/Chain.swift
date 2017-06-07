@@ -18,6 +18,7 @@ class Chain: Hashable, CustomStringConvertible {
     enum ChainType: CustomStringConvertible {
         case horizontal
         case vertical
+        case lShape
         
         // Note: add any other shapes you want to detect to this list.
         // case ChainTypeLShape
@@ -27,6 +28,7 @@ class Chain: Hashable, CustomStringConvertible {
             switch self {
             case .horizontal: return "Horizontal"
             case .vertical: return "Vertical"
+            case .lShape: return "lShape"
             }
         }
     }

@@ -26,7 +26,7 @@
 		335DE2171EC2F0760067E3AA /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE2161EC2F0760067E3AA /* Tile.swift */; };
 		335DE2191EC2F1110067E3AA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE2181EC2F1110067E3AA /* Extensions.swift */; };
 		335DE21B1EC307720067E3AA /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE21A1EC307720067E3AA /* Swap.swift */; };
-		B020BCCD1EC33EBC00EE9FE1 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020BCCC1EC33EBC00EE9FE1 /* Chain.swift */; };
+		338B9C941EE8189A00B8ABA8 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338B9C931EE8189A00B8ABA8 /* Chain.swift */; };
 		B020BCDA1EC4B3A200EE9FE1 /* Chomp.wav in Resources */ = {isa = PBXBuildFile; fileRef = B020BCD41EC4B3A200EE9FE1 /* Chomp.wav */; };
 		B020BCDB1EC4B3A200EE9FE1 /* Drip.wav in Resources */ = {isa = PBXBuildFile; fileRef = B020BCD51EC4B3A200EE9FE1 /* Drip.wav */; };
 		B020BCDC1EC4B3A200EE9FE1 /* Error.wav in Resources */ = {isa = PBXBuildFile; fileRef = B020BCD61EC4B3A200EE9FE1 /* Error.wav */; };
@@ -57,7 +57,7 @@
 		335DE2161EC2F0760067E3AA /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tile.swift; path = BakeryBlast/Tile.swift; sourceTree = SOURCE_ROOT; };
 		335DE2181EC2F1110067E3AA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		335DE21A1EC307720067E3AA /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
-		B020BCCC1EC33EBC00EE9FE1 /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chain.swift; path = ../Chain.swift; sourceTree = "<group>"; };
+		338B9C931EE8189A00B8ABA8 /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		B020BCD41EC4B3A200EE9FE1 /* Chomp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Chomp.wav; sourceTree = "<group>"; };
 		B020BCD51EC4B3A200EE9FE1 /* Drip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Drip.wav; sourceTree = "<group>"; };
 		B020BCD61EC4B3A200EE9FE1 /* Error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Error.wav; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				335DE2091EC2EA1C0067E3AA /* Level.swift */,
 				335DE2161EC2F0760067E3AA /* Tile.swift */,
 				335DE21A1EC307720067E3AA /* Swap.swift */,
-				B020BCCC1EC33EBC00EE9FE1 /* Chain.swift */,
+				338B9C931EE8189A00B8ABA8 /* Chain.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 				335DE2061EC2E4FD0067E3AA /* Cookie.swift in Sources */,
 				335DE2191EC2F1110067E3AA /* Extensions.swift in Sources */,
 				335DE2171EC2F0760067E3AA /* Tile.swift in Sources */,
-				B020BCCD1EC33EBC00EE9FE1 /* Chain.swift in Sources */,
+				338B9C941EE8189A00B8ABA8 /* Chain.swift in Sources */,
 				335DE1F41EC2DBAD0067E3AA /* GameViewController.swift in Sources */,
 				335DE1EC1EC2DBAD0067E3AA /* AppDelegate.swift in Sources */,
 				335DE2081EC2E89B0067E3AA /* Array2D.swift in Sources */,
