@@ -26,6 +26,10 @@ class Level {
     // Wherever tiles[a, b] is nil, the grid is empty and cannot contain a cookie.
     fileprivate var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
     
+    // The 2D array that contains the cookies to place at the beginning of the level, in
+    // the instance that we do not want the initial cookies displayed to be random.
+    fileprivate var beginLevelCookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
+    
     // The list of swipes that result in a valip swap. Used to determine whether
     // the player can make a certain swap, whether the board needs to be shuffled,
     // and to generate hints.
@@ -71,10 +75,39 @@ class Level {
             }
         }
         
-        // By this point you've parsed the JSON into a dictionary, so you grap
+        // By this point you've parsed the JSON into a dictionary, so you grab
         // the two values and store them.
         targetScore = dictionary["targetScore"] as! Int
         maximumMoves = dictionary["moves"] as! Int
+        
+        // The dictionary may contain an array named "beginLevelCookies". This array contains
+        // one element for each row of the level. Each of those row elements in turn is also an
+        // array describing the columns in that row. If a column is 1 = Croissant, 2 = Cupcake,
+        // 3 = Danish, 4 = Donut, 5 = Macaroon, 6 = SugarCookie, 0 = Empty.
+        guard let beginLevelCookiesArray = dictionary["beginLevelCookies"] as? [[Int]] else { return }
+        for (row, rowArray) in beginLevelCookiesArray.enumerated() {
+            let cookieRow = NumRows - row - 1
+            for (column, value) in rowArray.enumerated() {
+                if value == 1 {
+                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(1))!)
+                }
+                else if value == 2 {
+                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(2))!)
+                }
+                else if value == 3 {
+                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(3))!)
+                }
+                else if value == 4 {
+                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(4))!)
+                }
+                else if value == 5 {
+                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(5))!)
+                }
+                else if value == 6 {
+                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(6))!)
+                }
+            }
+        }
     }
     
     // MARK: Level Setup
@@ -86,20 +119,71 @@ class Level {
     // Returns a set containing all the new Cookie objects (Set<Cookie>).
     func shuffle() -> Set<Cookie> {
         var set: Set<Cookie>
-        repeat {
-            // Removes the old cookies and fills up the level with all new ones.
-            set = createInitialCookies()
+        // Check to see whether the level file has a pre-defined begin level cookies
+        // state. If the array is empty, then you create random cookies to fill the grid.
+        // Else we load the initial state from the level.json file.
+        if beginLevelCookiesIsNil(beginLevelCookies) {
+            repeat {
+                // Removes the old cookies and fills up the level with all new ones.
+                set = createInitialCookies()
             
-            // At the start of each turn we need to detect which cookies that player can
-            // actually swap. If the player tries to swap two cookies that are not in
-            // this set, then the game does not accept this as a valid move.
-            // This also tells you whether no more swaps are possible and the game needs
-            // to automatically reshuffle.
-            detectPossibleSwaps()
-//            print("possible swaps: \(possibleSwaps)")
-          // If there are no possible moves,then keep trying again until there are.
-        } while possibleSwaps.count == 0
+                // At the start of each turn we need to detect which cookies that player can
+                // actually swap. If the player tries to swap two cookies that are not in
+                // this set, then the game does not accept this as a valid move.
+                // This also tells you whether no more swaps are possible and the game needs
+                // to automatically reshuffle.
+                detectPossibleSwaps()
+//              print("possible swaps: \(possibleSwaps)")
+            // If there are no possible moves,then keep trying again until there are.
+            } while possibleSwaps.count == 0
         
+            return set
+        }
+        else {
+            set = loadInitialCookiesFromFile()
+            detectPossibleSwaps()
+            return set
+        }
+    }
+    
+    // Returns true is the beginLevelCookies array is nil or empty. Returns
+    // false otherwise.
+    fileprivate func beginLevelCookiesIsNil(_: Array2D<Cookie>) -> Bool {
+        var result: Bool
+        result = false
+        
+        for row in 0..<NumRows {
+            for column in 0..<NumColumns {
+                if beginLevelCookies[column, row] == nil {
+                    result = true
+                }
+                else {
+                    result = false
+                    return result
+                }
+            }
+        }
+        return result
+    }
+
+    // Returns a set containing the level defined initial Cookie objects
+    // (Set<Cookie>).
+    fileprivate func loadInitialCookiesFromFile() -> Set<Cookie> {
+        var set = Set<Cookie>()
+        
+        // Loop through the rows and columsn of the 2D array. Note that column 0,
+        // row 0 is in the bottom-left corner of the array.
+        for row in 0..<NumRows {
+            for column in 0..<NumColumns {
+                
+                // Only add to the set if there is a cookie on this tile.
+                if beginLevelCookies[column, row] != nil {
+                    let cookie = beginLevelCookies[column, row]!
+                    set.insert(cookie)
+                    cookies[column, row] = cookie
+                }
+            }
+        }
         return set
     }
     
