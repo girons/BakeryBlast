@@ -114,10 +114,9 @@ class Level {
     
     // Fills up the level with new Cookie objects. The level is guaranteed free
     // from matches at this point.
-    // You call this method at the beginning of the game and whenever the player
-    // taps the Shuffle button.
+    // You call this method at the beginning of the game.
     // Returns a set containing all the new Cookie objects (Set<Cookie>).
-    func shuffle() -> Set<Cookie> {
+    func beginGameShuffle() -> Set<Cookie> {
         var set: Set<Cookie>
         // Check to see whether the level file has a pre-defined begin level cookies
         // state. If the array is empty, then you create random cookies to fill the grid.
@@ -145,6 +144,29 @@ class Level {
             return set
         }
     }
+    
+    // Fills up the level with new Cookie objects. The level is guaranteed free
+    // from matches at this point.
+    // You call this method whenever the player taps the Shuffle button.
+    // Returns a set containing all the new Cookie objects (Set<Cookie>).
+    func shuffle() -> Set<Cookie> {
+        var set: Set<Cookie>
+        
+        repeat {
+            // Removes the old cookies and fills up the level with all new ones.
+            set = createInitialCookies()
+            // At the start of each turn we need to detect which cookies that player can
+            // actually swap. If the player tries to swap two cookies that are not in
+            // this set, then the game does not accept this as a valid move.
+            // This also tells you whether no more swaps are possible and the game needs
+            // to automatically reshuffle.
+            detectPossibleSwaps()
+        // If there are no possible move, then keep trying again until there are.
+        } while possibleSwaps.count == 0
+        
+        return set
+    }
+    
     
     // Returns true is the beginLevelCookies array is nil or empty. Returns
     // false otherwise.
@@ -479,6 +501,7 @@ class Level {
         var horizontalChains = detectHorizontalMatches()
         var verticalChains = detectVerticalMatches()
         
+        // Detects whether there are L-Shaped chains.
         // We create a new Set containing L-Shaped Chain objects.
         var lShapeChains = Set<Chain>()
         
@@ -510,20 +533,16 @@ class Level {
             }
         }
         
-        //TODO: T SHAPED CHAINS
-        
+        // Detects whether there are T-Shaped chains.
         // We create a new Set containing T-Shaped Chain objects.
         var tShapeChains = Set<Chain>()
         
         // Loop through the horizontal & vertical chains.
         for horizontalChain in horizontalChains {
             for verticalChain in verticalChains {
-                
                 // We calculate the position of the middle cookie in the vertical & horizontal chains.
-                let middleHorizontalCookie = horizontalChain.cookies[Int(((horizontalChain.length / 2) + 1))]
-                print(middleHorizontalCookie)
-                let middleVerticalCookie = verticalChain.cookies[Int(((verticalChain.length / 2) + 1))]
-                print(middleVerticalCookie)
+                let middleHorizontalCookie = horizontalChain.cookies[((horizontalChain.cookies.count) / 2)]
+                let middleVerticalCookie = verticalChain.cookies[((verticalChain.cookies.count) / 2)]
                 
                 // We check whether a cookie is in both the horizontal & vertical
                 // chains set and whether it is the in the middle in one array.
@@ -546,23 +565,16 @@ class Level {
                     verticalChain.chainType = .tShape
                     
                     tShapeChains.insert(verticalChain)
-                    print(tShapeChains)
                 }
             }
         }
-        
-        // Note: to detect more advanced patterns such as an L shape, you can see
-        // whether a cookie is in both the horizontal & vertical chains sets and
-        // whether it is the first or last in the array (at a corner). Then you
-        // create a new Chain object with the new type and remove the other two.
         
         removeCookies(horizontalChains)
         removeCookies(verticalChains)
         removeCookies(lShapeChains)
         removeCookies(tShapeChains)
         
-        // Need to call calculateScores twices because there are two
-        // sets of chain objects.
+        // Need to call calculateScore for each set of chain objects.
         calculateScores(for: horizontalChains)
         calculateScores(for: verticalChains)
         calculateScores(for: lShapeChains)

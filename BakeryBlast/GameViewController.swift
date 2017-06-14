@@ -135,7 +135,18 @@ class GameViewController: UIViewController {
             self.shuffleButton.isHidden = false
         }
         
-        shuffle()
+        beginGameShuffle()
+    }
+    
+    // beginGameShuffle is different from shuffle() because it checks to
+    // see if the level.json file has a predefined cookies structure
+    // before populating the level with Cookie objects.
+    func beginGameShuffle() {
+        scene.removeAllCookieSprites()
+        
+        // Fill up the level with new cookies, and create sprites for them.
+        let newCookies = level.beginGameShuffle()
+        scene.addSprites(for: newCookies)
     }
     
     func shuffle() {
