@@ -184,9 +184,14 @@ class GameViewController: UIViewController {
     func beginNextTurn() {
         level.resetComboMultiplier()
         level.detectPossibleSwaps()
-        view.isUserInteractionEnabled = true
-        
         decrementMoves()
+        
+        if level.swapsRemaining() {
+            view.isUserInteractionEnabled = true
+        } else {
+            shuffle()
+        }
+        
     }
     
     // This is the main loop that removes any matching cookies and fills up the

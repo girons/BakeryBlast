@@ -30,7 +30,7 @@ class Level {
     // the instance that we do not want the initial cookies displayed to be random.
     fileprivate var beginLevelCookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
     
-    // The list of swipes that result in a valip swap. Used to determine whether
+    // The list of swipes that result in a valid swap. Used to determine whether
     // the player can make a certain swap, whether the board needs to be shuffled,
     // and to generate hints.
     // Using a Set here instead of an Array because the order of the elements in this
@@ -89,22 +89,28 @@ class Level {
             let cookieRow = NumRows - row - 1
             for (column, value) in rowArray.enumerated() {
                 if value == 1 {
-                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(1))!)
+                    beginLevelCookies[column, cookieRow] =
+                        Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(1))!)
                 }
                 else if value == 2 {
-                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(2))!)
+                    beginLevelCookies[column, cookieRow] =
+                        Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(2))!)
                 }
                 else if value == 3 {
-                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(3))!)
+                    beginLevelCookies[column, cookieRow] =
+                        Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(3))!)
                 }
                 else if value == 4 {
-                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(4))!)
+                    beginLevelCookies[column, cookieRow] =
+                        Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(4))!)
                 }
                 else if value == 5 {
-                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(5))!)
+                    beginLevelCookies[column, cookieRow] =
+                        Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(5))!)
                 }
                 else if value == 6 {
-                    beginLevelCookies[column, cookieRow] = Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(6))!)
+                    beginLevelCookies[column, cookieRow] =
+                        Cookie.init(column: column, row: cookieRow, cookieType: CookieType(rawValue: Int(6))!)
                 }
             }
         }
@@ -166,7 +172,6 @@ class Level {
         
         return set
     }
-    
     
     // Returns true is the beginLevelCookies array is nil or empty. Returns
     // false otherwise.
@@ -350,7 +355,7 @@ class Level {
     
     // Recalculates which moves are valid.
     // In summary, this algorithm performs a swap for each pair of cookies, performs a swap
-    // for each pair of cookies, checks whether it results in a china and then undoes the
+    // for each pair of cookies, checks whether it results in a chain and then undoes the
     // swap, recording every chain it finds.
     func detectPossibleSwaps() {
         var set = Set<Swap>()
@@ -406,6 +411,15 @@ class Level {
         }
         
         possibleSwaps = set
+    }
+    
+    func swapsRemaining() -> Bool {
+        if possibleSwaps.count == 0 {
+            return false
+        }
+        else {
+            return true
+        }
     }
 
     fileprivate func calculateScores(for chains: Set<Chain>) {

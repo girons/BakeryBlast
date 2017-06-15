@@ -196,7 +196,7 @@ class GameScene: SKScene {
                SKAction.sequence([
                 SKAction.wait(forDuration: 0.25, withRange: 0.5),
                 SKAction.group([
-                    SKAction.fadeIn(withDuration: 0.25),
+                    SKAction.fadeIn(withDuration: 1.0),
                     SKAction.scale(to: 1.0, duration: 0.25)
                     ])
                 ]))
@@ -419,7 +419,7 @@ class GameScene: SKScene {
         // We don't want to continue with the game until all the animations are
         // complete, so we calculate how long the longest animation lasts, and
         // wait that amount before we trigger the completion block.
-        var longestDuration: TimeInterval = 0
+        var longestDuration: TimeInterval = 0.7
         
         for array in columns {
             
