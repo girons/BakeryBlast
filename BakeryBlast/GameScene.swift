@@ -482,9 +482,30 @@ class GameScene: SKScene {
         scoreLabel.text = String(format: "%ld", chain.score)
         scoreLabel.position = centerPosition
         scoreLabel.zPosition = 300
+    
+        // Detects the type of the cookies in the chain and changes
+        // the scoreLabel text colour to reflect this.
+        let cookieType = chain.firstCookie().cookieType.spriteName
+        switch cookieType {
+        case "Croissant":
+            scoreLabel.fontColor = UIColor.orange
+        case "Cupcake":
+            scoreLabel.fontColor = UIColor.red
+        case "Danish":
+            scoreLabel.fontColor = UIColor.blue
+        case "Donut":
+            scoreLabel.fontColor = UIColor.purple
+        case "Macaroon":
+            scoreLabel.fontColor = UIColor.green
+        case "SugarCookie":
+            scoreLabel.fontColor = UIColor.yellow
+        default:
+            scoreLabel.fontColor = UIColor.white
+        }
+        
         cookiesLayer.addChild(scoreLabel)
         
-        let moveAction = SKAction.move(by: CGVector(dx: 0, dy: 3), duration: 0.7)
+        let moveAction = SKAction.move(by: CGVector(dx: 0, dy: 15), duration: 0.6)
         moveAction.timingMode = .easeOut
         scoreLabel.run(SKAction.sequence([moveAction, SKAction.removeFromParent()]))
     }
