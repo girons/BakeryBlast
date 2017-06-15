@@ -52,17 +52,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var gameOverPanel: UIImageView!
-    @IBOutlet weak var shuffleButton: UIButton!
     
     
     // MARK: IBActions
-    
-    @IBAction func shuffleButtonPressed(_: AnyObject) {
-        shuffle()
-        
-        // Pressing the shuffle button costs a move.
-        decrementMoves()
-    }
     
     
     // MARK: View Controller Functions
@@ -114,7 +106,6 @@ class GameViewController: UIViewController {
         scene.swipeHandler = handleSwipe
         
         gameOverPanel.isHidden = true
-        shuffleButton.isHidden = true
         
         // Present the scene.
         skView.presentScene(scene)
@@ -130,10 +121,10 @@ class GameViewController: UIViewController {
         updateLabels()
         
         level.resetComboMultiplier()
-        
         scene.animateBeginGame() {
-            self.shuffleButton.isHidden = false
+            
         }
+        
         
         beginGameShuffle()
     }
@@ -260,7 +251,6 @@ class GameViewController: UIViewController {
     // from swiping and adds a tap gesture recognizer that will restart the game.
     func showGameOver() {
         gameOverPanel.isHidden = false
-        shuffleButton.isHidden = true
         scene.isUserInteractionEnabled = false
         
         scene.animateGameOver() {
