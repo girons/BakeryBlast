@@ -36,8 +36,45 @@ enum CookieType: Int, CustomStringConvertible {
     }
     
     static func random() -> CookieType {
+        print(CookieType(rawValue: Int(arc4random_uniform(5)) + 1)!)
         return CookieType(rawValue: Int(arc4random_uniform(6)) + 1)!
+        
     }
+    
+    static func generateRandomNumber(min: Int, max: Int) -> Int {
+        let randomNum = Int(arc4random_uniform(UInt32(max) - UInt32(min)) + UInt32(min))
+        return randomNum
+    }
+    
+    static func sudoRandom() -> CookieType {
+        //let first_lo = 1
+        //let first_hi = 2
+        //let second_lo = 3
+        //let second_hi = 4
+        //let third_lo = 5
+        //let third_hi = 6
+        
+        let temp = Int(arc4random_uniform(6) + 1)
+        
+        if temp <= 2 {
+            let randomNumber = generateRandomNumber(min: 1, max: 3)
+            print("1-2 chance 1/3 = \(CookieType(rawValue: Int(randomNumber))!)")
+            
+            return CookieType(rawValue: Int(randomNumber))!
+        } else if temp <= 3 {
+            let randomNumber = generateRandomNumber(min: 3, max: 5)
+            print("3-4 chance 1/6 = \(CookieType(rawValue: Int(randomNumber))!)")
+            
+            return CookieType(rawValue: Int(randomNumber))!
+        } else {
+            let randomNumber = generateRandomNumber(min: 5, max: 7)
+            print("5-6 chance 1/2 = \(CookieType(rawValue: Int(randomNumber))!)")
+            
+            return CookieType(rawValue: Int(randomNumber))!
+        }
+        
+    }
+            
 }
 
 

@@ -693,7 +693,7 @@ class Level {
                     // "freebie" matches.
                     var newCookieType: CookieType
                     repeat {
-                        newCookieType = CookieType.random()
+                        newCookieType = CookieType.sudoRandom()
                     } while newCookieType == cookieType
                     cookieType = newCookieType
                     
