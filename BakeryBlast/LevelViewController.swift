@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  LevelViewController.swift
 //  BakeryBlast
 //
 //  Created by George Irons on 10/05/2017.
@@ -10,12 +10,12 @@ import UIKit
 import SpriteKit
 import AVFoundation
 
-class GameViewController: UIViewController {
+class LevelViewController: UIViewController {
     
     // MARK: Properties
     
     // The scene draws the tiles and cookie sprites, and handles swipes.
-    var scene: GameScene!
+    var scene: LevelScene!
     
     // The level contains the tiles, the cookies, and most of the gameplay logic.
     // Needs to be ! because it's not set in init() but in viewDidLoad().
@@ -89,7 +89,7 @@ class GameViewController: UIViewController {
         skView.isMultipleTouchEnabled = false
         
         // Create and configure the scene.
-        scene = GameScene(size: skView.bounds.size)
+        scene = LevelScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
         
         // Setup the level.
@@ -98,10 +98,10 @@ class GameViewController: UIViewController {
         
         scene.addTiles()
         
-        // Assigns the handleSwipe() function to GameScene's
-        // swipeHandler property. Now whenever GameScene calls
+        // Assigns the handleSwipe() function to LevelScene's
+        // swipeHandler property. Now whenever LevelScene calls
         // swipeHandler(swap), it actually calls a function in
-        // GameViewController. This works because in Swift you
+        // LevelViewController. This works because in Swift you
         // can user functions and closures interchangeably.
         scene.swipeHandler = handleSwipe
         

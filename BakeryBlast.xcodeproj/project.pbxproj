@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		332F361F1EC5ADDB00245E09 /* Grid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 332F361E1EC5ADDB00245E09 /* Grid.atlas */; };
 		335DE1EC1EC2DBAD0067E3AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE1EB1EC2DBAD0067E3AA /* AppDelegate.swift */; };
-		335DE1F21EC2DBAD0067E3AA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE1F11EC2DBAD0067E3AA /* GameScene.swift */; };
-		335DE1F41EC2DBAD0067E3AA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE1F31EC2DBAD0067E3AA /* GameViewController.swift */; };
+		335DE1F21EC2DBAD0067E3AA /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE1F11EC2DBAD0067E3AA /* LevelScene.swift */; };
+		335DE1F41EC2DBAD0067E3AA /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE1F31EC2DBAD0067E3AA /* LevelViewController.swift */; };
 		335DE1F71EC2DBAD0067E3AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335DE1F51EC2DBAD0067E3AA /* Main.storyboard */; };
 		335DE1F91EC2DBAD0067E3AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335DE1F81EC2DBAD0067E3AA /* Assets.xcassets */; };
 		335DE1FC1EC2DBAD0067E3AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335DE1FA1EC2DBAD0067E3AA /* LaunchScreen.storyboard */; };
@@ -25,6 +25,8 @@
 		335DE2171EC2F0760067E3AA /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE2161EC2F0760067E3AA /* Tile.swift */; };
 		335DE2191EC2F1110067E3AA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE2181EC2F1110067E3AA /* Extensions.swift */; };
 		335DE21B1EC307720067E3AA /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DE21A1EC307720067E3AA /* Swap.swift */; };
+		338A59D91EFAEE1800EDCB1F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A59D81EFAEE1800EDCB1F /* WelcomeViewController.swift */; };
+		338A59DB1EFAEF3500EDCB1F /* WelcomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338A59DA1EFAEF3500EDCB1F /* WelcomeScene.swift */; };
 		338B9C941EE8189A00B8ABA8 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338B9C931EE8189A00B8ABA8 /* Chain.swift */; };
 		338B9C961EE819BD00B8ABA8 /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 338B9C951EE819BD00B8ABA8 /* Level_1.json */; };
 		338B9C981EE8895600B8ABA8 /* Level_5.json in Resources */ = {isa = PBXBuildFile; fileRef = 338B9C971EE8895600B8ABA8 /* Level_5.json */; };
@@ -40,8 +42,8 @@
 		332F361E1EC5ADDB00245E09 /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Grid.atlas; sourceTree = "<group>"; };
 		335DE1E81EC2DBAD0067E3AA /* BakeryBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BakeryBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		335DE1EB1EC2DBAD0067E3AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		335DE1F11EC2DBAD0067E3AA /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		335DE1F31EC2DBAD0067E3AA /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		335DE1F11EC2DBAD0067E3AA /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
+		335DE1F31EC2DBAD0067E3AA /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		335DE1F61EC2DBAD0067E3AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		335DE1F81EC2DBAD0067E3AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		335DE1FB1EC2DBAD0067E3AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		335DE2161EC2F0760067E3AA /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tile.swift; path = BakeryBlast/Tile.swift; sourceTree = SOURCE_ROOT; };
 		335DE2181EC2F1110067E3AA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		335DE21A1EC307720067E3AA /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
+		338A59D81EFAEE1800EDCB1F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		338A59DA1EFAEF3500EDCB1F /* WelcomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeScene.swift; sourceTree = "<group>"; };
 		338B9C931EE8189A00B8ABA8 /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		338B9C951EE819BD00B8ABA8 /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
 		338B9C971EE8895600B8ABA8 /* Level_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_5.json; sourceTree = "<group>"; };
@@ -125,7 +129,8 @@
 		B020BCCE1EC4827700EE9FE1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				335DE1F31EC2DBAD0067E3AA /* GameViewController.swift */,
+				335DE1F31EC2DBAD0067E3AA /* LevelViewController.swift */,
+				338A59D81EFAEE1800EDCB1F /* WelcomeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -157,7 +162,8 @@
 		B020BCD11EC4831400EE9FE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				335DE1F11EC2DBAD0067E3AA /* GameScene.swift */,
+				335DE1F11EC2DBAD0067E3AA /* LevelScene.swift */,
+				338A59DA1EFAEF3500EDCB1F /* WelcomeScene.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -275,12 +281,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				335DE20A1EC2EA1C0067E3AA /* Level.swift in Sources */,
-				335DE1F21EC2DBAD0067E3AA /* GameScene.swift in Sources */,
+				335DE1F21EC2DBAD0067E3AA /* LevelScene.swift in Sources */,
+				338A59D91EFAEE1800EDCB1F /* WelcomeViewController.swift in Sources */,
+				338A59DB1EFAEF3500EDCB1F /* WelcomeScene.swift in Sources */,
 				335DE2061EC2E4FD0067E3AA /* Cookie.swift in Sources */,
 				335DE2191EC2F1110067E3AA /* Extensions.swift in Sources */,
 				335DE2171EC2F0760067E3AA /* Tile.swift in Sources */,
 				338B9C941EE8189A00B8ABA8 /* Chain.swift in Sources */,
-				335DE1F41EC2DBAD0067E3AA /* GameViewController.swift in Sources */,
+				335DE1F41EC2DBAD0067E3AA /* LevelViewController.swift in Sources */,
 				335DE1EC1EC2DBAD0067E3AA /* AppDelegate.swift in Sources */,
 				335DE2081EC2E89B0067E3AA /* Array2D.swift in Sources */,
 				335DE21B1EC307720067E3AA /* Swap.swift in Sources */,

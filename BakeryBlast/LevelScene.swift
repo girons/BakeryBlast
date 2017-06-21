@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  LevelScene.swift
 //  BakeryBlast
 //
 //  Created by George Irons on 10/05/2017.
@@ -8,12 +8,12 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class LevelScene: SKScene {
     
     // MARK: Properties
     
     // This is marked as ! because it will not initially have a value, but pretty
-    // soon after the GameScene is created it will be given a Level object, and
+    // soon after the LevelScene is created it will be given a Level object, and
     // from then on it will always have one (it will never be nil again).
     var level: Level!
     
@@ -21,7 +21,7 @@ class GameScene: SKScene {
     let TileWidth: CGFloat = 32.0
     let TileHeight: CGFloat = 36.0
     
-    // To keep the Sprite Kit node hierarchy neatly organised, GameScene uses
+    // To keep the Sprite Kit node hierarchy neatly organised, LevelScene uses
     // several layers. The base layer is called gameLayer.
     // cropLayer is a special kind of node called a SKCropNode, and a mask layer.
     // A crop node only draws its children where the mask contains pixels. This
