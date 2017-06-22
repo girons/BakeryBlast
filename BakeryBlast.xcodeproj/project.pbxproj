@@ -36,6 +36,8 @@
 		B020BCDD1EC4B3A200EE9FE1 /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = B020BCD71EC4B3A200EE9FE1 /* Ka-Ching.wav */; };
 		B020BCDE1EC4B3A200EE9FE1 /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B020BCD81EC4B3A200EE9FE1 /* Mining by Moonlight.mp3 */; };
 		B020BCDF1EC4B3A200EE9FE1 /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = B020BCD91EC4B3A200EE9FE1 /* Scrape.wav */; };
+		B094E7AC1EFBD7E400D02EBB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094E7AB1EFBD7E400D02EBB /* HomeViewController.swift */; };
+		B094E7AE1EFBD80200D02EBB /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B094E7AD1EFBD80200D02EBB /* HomeScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		B020BCD71EC4B3A200EE9FE1 /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ka-Ching.wav"; sourceTree = "<group>"; };
 		B020BCD81EC4B3A200EE9FE1 /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mining by Moonlight.mp3"; sourceTree = "<group>"; };
 		B020BCD91EC4B3A200EE9FE1 /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Scrape.wav; sourceTree = "<group>"; };
+		B094E7AB1EFBD7E400D02EBB /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B094E7AD1EFBD80200D02EBB /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 			children = (
 				335DE1F31EC2DBAD0067E3AA /* LevelViewController.swift */,
 				338A59D81EFAEE1800EDCB1F /* WelcomeViewController.swift */,
+				B094E7AB1EFBD7E400D02EBB /* HomeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			children = (
 				335DE1F11EC2DBAD0067E3AA /* LevelScene.swift */,
 				338A59DA1EFAEF3500EDCB1F /* WelcomeScene.swift */,
+				B094E7AD1EFBD80200D02EBB /* HomeScene.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 				335DE20A1EC2EA1C0067E3AA /* Level.swift in Sources */,
 				335DE1F21EC2DBAD0067E3AA /* LevelScene.swift in Sources */,
 				338A59D91EFAEE1800EDCB1F /* WelcomeViewController.swift in Sources */,
+				B094E7AE1EFBD80200D02EBB /* HomeScene.swift in Sources */,
 				338A59DB1EFAEF3500EDCB1F /* WelcomeScene.swift in Sources */,
 				335DE2061EC2E4FD0067E3AA /* Cookie.swift in Sources */,
 				335DE2191EC2F1110067E3AA /* Extensions.swift in Sources */,
@@ -291,6 +298,7 @@
 				335DE1F41EC2DBAD0067E3AA /* LevelViewController.swift in Sources */,
 				335DE1EC1EC2DBAD0067E3AA /* AppDelegate.swift in Sources */,
 				335DE2081EC2E89B0067E3AA /* Array2D.swift in Sources */,
+				B094E7AC1EFBD7E400D02EBB /* HomeViewController.swift in Sources */,
 				335DE21B1EC307720067E3AA /* Swap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

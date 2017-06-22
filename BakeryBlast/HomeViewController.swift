@@ -1,24 +1,21 @@
 //
-//  WelcomeViewController.swift
+//  HomeViewController.swift
 //  BakeryBlast
 //
-//  Created by George Irons on 21/06/2017.
+//  Created by George Irons on 22/06/2017.
 //  Copyright © 2017 Girons. All rights reserved.
 //
 
 import UIKit
 import SpriteKit
 
-class WelcomeViewController: UIViewController {
-    var scene: WelcomeScene!
-    
-    // MARK: IBOutlets
-    @IBOutlet weak var playButton: UIButton!
+class HomeViewController: UIViewController {
+    var scene: HomeScene!
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
-
+    
     override var shouldAutorotate: Bool {
         return true
     }
@@ -35,7 +32,7 @@ class WelcomeViewController: UIViewController {
         skView.isMultipleTouchEnabled = false
         
         // Create and configure the scene.
-        scene = WelcomeScene(size: skView.bounds.size)
+        scene = HomeScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
         
         // Present the scene.
