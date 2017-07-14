@@ -1,19 +1,71 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rBI-ev-Mtz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--Welcome View Controller-->
+        <scene sceneID="Qfu-YY-bUl">
+            <objects>
+                <viewController id="rBI-ev-Mtz" customClass="WelcomeViewController" customModule="BakeryBlast" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9dc-ZU-MYp"/>
+                        <viewControllerLayoutGuide type="bottom" id="P5X-Ht-gsB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wEy-Bc-9EW" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V86-Qt-Vgk">
+                                <rect key="frame" x="105" y="301" width="165" height="65"/>
+                                <state key="normal" image="PlayButton"/>
+                                <connections>
+                                    <segue destination="mKG-8M-B16" kind="show" id="dkJ-9O-Rby"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V86-Qt-Vgk" firstAttribute="centerY" secondItem="wEy-Bc-9EW" secondAttribute="centerY" id="IQS-6h-IFh"/>
+                            <constraint firstItem="V86-Qt-Vgk" firstAttribute="centerX" secondItem="wEy-Bc-9EW" secondAttribute="centerX" id="YLI-yt-pky"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playButton" destination="V86-Qt-Vgk" id="jc3-C6-nha"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k50-Rs-8va" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1281" y="139"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="liq-Ri-p3i">
+            <objects>
+                <viewController id="mKG-8M-B16" customClass="HomeViewController" customModule="BakeryBlast" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AhO-Qm-KPA"/>
+                        <viewControllerLayoutGuide type="bottom" id="G9S-jW-fbY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2pM-hc-CBl" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7k-Bv-4Sg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-494" y="139"/>
+        </scene>
+        <!--Level View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="BakeryBlast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="LevelViewController" customModule="BakeryBlast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
@@ -116,7 +168,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="138.98050974512745"/>
+            <point key="canvasLocation" x="319" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PlayButton" width="165" height="65"/>
+    </resources>
 </document>
