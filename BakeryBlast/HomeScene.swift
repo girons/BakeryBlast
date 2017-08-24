@@ -10,6 +10,14 @@
 import SpriteKit
 
 class HomeScene: SKScene {
+    
+    // MARK: Properties
+    
+    // To keep the Sprite Kit node hierarchy neatly organised, HomeScene uses
+    // several layers. The base layer is called homeLayer.
+    let homeLayer = SKNode()
+    let controlsLayer = SKNode()
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
     }
@@ -17,11 +25,10 @@ class HomeScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
-        anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        homeLayer.isHidden = false
+        addChild(homeLayer)
         
-//        let background = SKSpriteNode(imageNamed: "HomeBackground")
-//        background.size = size
-//        addChild(background)
+        
     }
 }
 

@@ -10,8 +10,20 @@ import UIKit
 import SpriteKit
 
 class HomeViewController: UIViewController, UIScrollViewDelegate {
+    
+    // MARK: Properties
+    
+    // The scene displays the map
     var scene: HomeScene!
-    let scrollView = UIScrollView() // Create the scrollView
+    
+    // MARK: IBOutlets
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var homeControls: UIImageView!
+    
+    // MARK: IBActions
+    
+    // MARK: View Controller Functions
     
     
     override var prefersStatusBarHidden: Bool {
@@ -29,30 +41,32 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // Configure the view.
-//        let skView = view as! SKView
-//        skView.isMultipleTouchEnabled = false
-//        
-//        // Create and configure the scene.
-//        scene = HomeScene(size: skView.bounds.size)
-//        scene.scaleMode = .aspectFill
-//        
-//        // Present the scene.
-//        skView.presentScene(scene)
+        // Display the home screen
+        setupHome()
+        
+    }
+    
+    func setupHome() {
+        let skView = view as! SKView
+        skView.isMultipleTouchEnabled = false
+        
+        // Create and configure the scene.
+        scene = HomeScene(size: skView.bounds.size)
+        scene.scaleMode = .aspectFill
         
         // Set up and add scrollView to view
         scrollView.frame = self.view.frame
         self.scrollView.isPagingEnabled = true
-        self.view.addSubview(scrollView)
         self.scrollView.delegate = self
-        
         self.scrollView.contentOffset = CGPoint(x:0, y: 4168)
         
+        skView.addSubview(scrollView)
+        
         // An array of homeBackground images to add to the view
-        let x : [UIImage] = [UIImage(named: "homeBackground1")!,
-                             UIImage(named: "homeBackground2")!,
-                             UIImage(named: "homeBackground3")!,
-                             UIImage(named: "homeBackground4")!]
+        let x : [UIImage] = [UIImage(named: "HomeBackground1")!,
+                             UIImage(named: "HomeBackground2")!,
+                             UIImage(named: "HomeBackground3")!,
+                             UIImage(named: "HomeBackground4")!]
         
         // For each UIImage add a view
         for index in 0...x.count-1 {
@@ -71,12 +85,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             scrollView.addSubview(subView) // Add View
         }
         
-        let c = (self.scrollView.frame.size.height) * CGFloat(x.count)
-        self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width, height:c)
+        let height = (self.scrollView.frame.size.height) * CGFloat(x.count)
+        self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width, height:height)
         
         // Background Colour
         self.view.backgroundColor = UIColor.gray
         
+        
+        
+        // Present the scene.
+        skView.presentScene(scene)
     }
     
     override func didReceiveMemoryWarning() {

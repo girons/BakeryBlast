@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rBI-ev-Mtz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rBI-ev-Mtz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,12 +55,29 @@
                     <view key="view" contentMode="scaleToFill" id="2pM-hc-CBl" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Wj-jq-3l0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-Eq-gUe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="5L8-0X-az1" kind="embed" id="ulK-S0-1jQ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="homeControls" destination="ziP-bl-TEh" id="uUG-Kg-A7k"/>
+                        <outlet property="scrollView" destination="2Wj-jq-3l0" id="l2s-ag-DD1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7k-Bv-4Sg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-494" y="139"/>
+            <point key="canvasLocation" x="-495.19999999999999" y="138.98050974512745"/>
         </scene>
         <!--Level View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -170,8 +187,33 @@
             </objects>
             <point key="canvasLocation" x="319" y="139"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="cHb-aa-M6t">
+            <objects>
+                <viewController id="5L8-0X-az1" customClass="HomeViewController" customModule="BakeryBlast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pNa-N0-Yll" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeControls" translatesAutoresizingMaskIntoConstraints="NO" id="ziP-bl-TEh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ziP-bl-TEh" secondAttribute="trailing" id="8Br-xR-nmq"/>
+                            <constraint firstItem="ziP-bl-TEh" firstAttribute="leading" secondItem="pNa-N0-Yll" secondAttribute="leading" id="WYf-qi-vOu"/>
+                            <constraint firstItem="ziP-bl-TEh" firstAttribute="top" secondItem="pNa-N0-Yll" secondAttribute="top" id="pu1-Q4-CgE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ryf-oG-IA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="-292"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="HomeControls" width="320" height="82"/>
         <image name="PlayButton" width="165" height="65"/>
     </resources>
 </document>

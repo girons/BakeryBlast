@@ -86,7 +86,7 @@ class LevelScene: SKScene {
         addChild(gameLayer)
         
         // Because column 0, row 0 is in the bottom-left corner of the 2D grip, you
-        // want the positions of the sprites to be relative to the cookieLays's
+        // want the positions of the sprites to be relative to the cookieLayer's
         // bottom-left corner, as well. That's why we move the layer down and to the
         // left by half the height and width of the grid.
         let layerPosition = CGPoint(
